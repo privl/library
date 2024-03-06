@@ -1,0 +1,109 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 10px;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem 5rem;
+    border-bottom: 0.1rem solid #000;
+    h1 {
+        font-size: 1.5rem;
+    }
+    button {
+        justify-self: end;
+        width: clamp(5rem, 10rem, 15rem);
+        font-size: 1.5rem;
+        background-color: #fff;
+        border-radius: 0.2rem;
+        border: 0.1rem solid #000;
+    }
+    button:hover {
+        color: #fff;
+        background-color: #000;
+    }
+}
+
+main {
+
+}
+
+dialog {
+    margin: auto;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    form {
+        font-size: 1rem;
+        display: grid;
+        grid-template: repeat(6, auto) / repeat(2, 1fr);
+        gap: 0.5rem;
+
+        div {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            align-items: center;
+
+            label {
+                font-size: 1.2rem;
+            }
+            input {
+                justify-self: end;
+                padding: 0.5rem;
+                width: 14rem;
+                height: 2rem;
+                border: 0.1rem solid #000;
+                border-radius: 0.4rem;
+            }
+        }
+
+        button {
+            justify-self: end;
+            width: clamp(5rem, 10rem, 15rem);
+            padding: 0.2rem;
+            font-size: 1rem;
+            background-color: #fff;
+            border-radius: 0.2rem;
+            border: 0.1rem solid #000;
+        }
+        button:hover {
+            color: #fff;
+            background-color: #000;
+        }
+
+        h3 {
+            grid-area: 1 / 1 / span 1 / span 2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        #line1 {
+            grid-area: 2 / 1 / span 1 / span 2;
+        }
+        #line2 {
+            grid-area: 3 / 1 / span 1 / span 2;
+        }
+        #line3 {
+            grid-area: 4 / 1 / span 1 / span 2;
+        }
+        #line4 {
+            grid-area: 5 / 1 / span 1 / span 2;
+            margin-bottom: 2rem;
+        }
+        #cancelForm {
+            grid-area: 6 / 1 / span 1 / span 1;
+        }
+        #submitForm {
+            grid-area: 6 / 2 / span 1 / span 1;
+        }
+        
+    }
+    
+}
