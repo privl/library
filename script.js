@@ -49,7 +49,9 @@ function addBookToLibrary() {
 }
 
 function showLibrary() {
-    for (let book in myLibrary) {
+    libDisplay.replaceChildren();
+
+    for (let book of myLibrary) {
         const cardDiv = document.createElement('div');
         const nameDiv = document.createElement('div');
         const authorDiv = document.createElement('div');
@@ -61,15 +63,32 @@ function showLibrary() {
         nameDiv.textContent = 'Name: ' + book.name;
         authorDiv.textContent = 'Author: ' + book.author;
         pagesDiv.textContent = 'Pages: ' + book.pages;
-        if (book.read) {
-            readDiv.textContent = 'Read';
-        } else {
-            readDiv.textContent = 'Unread';
-        }
-        readBtn.textContent = 'Change read status';
+        readDiv.textContent = book.read ? 'Status: Read' : 'Status: Unread';
+        readBtn.textContent = 'Change status';
         removeBtn.textContent = 'Remove';
+
+        cardDiv.classList.add('card');
+        nameDiv.classList.add('nameDisplay');
+        authorDiv.classList.add('authorDisplay');
+        pagesDiv.classList.add('pagesDisplay');
+        readDiv.classList.add('readDisplay');
+        readBtn.classList.add('readBtn');
+        removeBtn.classList.add('removeBtn');
+
+        readBtn.addEventListener('click', changeRead.bind(book));
+        removeBtn.addEventListener('click', removeBook.bind(book));
 
         cardDiv.append(nameDiv, authorDiv, pagesDiv, readDiv, readBtn, removeBtn);
         libDisplay.append(cardDiv);
     }
+}
+
+function changeRead() {
+    this.read = this.read ? false : true; 
+    showLibrary();
+}
+
+function removeBook() {
+    myLibrary.splice(myLibrary.indexOf(this), 1);
+    showLibrary();
 }

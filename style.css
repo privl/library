@@ -14,9 +14,9 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 1.5rem 5rem;
-    border-bottom: 0.1rem solid #000;
+    border-bottom: 0.2rem solid #000;
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
     button {
         justify-self: end;
@@ -33,7 +33,58 @@ header {
 }
 
 main {
+    padding: 1.5rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 0.3fr));
+    gap: 1rem;
+    .card {
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border: 0.1rem solid #000;
+        border-radius: 0.5rem;
+        display: grid;
+        grid-template: repeat(5, 1fr) / repeat(2, 1fr);
+        grid-template-areas: 
+            "name name"
+            "author author"
+            "pages pages"
+            "read read"
+            "change remv";
+        gap: 0.8rem;
 
+        .nameDisplay {
+            grid-area: name;
+        }
+        .authorDisplay {
+            grid-area: author;
+        }
+        .pagesDisplay {
+            grid-area: pages;
+        }
+        .readDisplay {
+            grid-area: read;
+        }
+        .readBtn {
+            grid-area: change;
+        }
+        .removeBtn {
+            grid-area: remv;
+        }
+
+        button {
+            padding: 0.2rem;
+            width: clamp(5rem, 1fr, 12rem);
+            font-size: 1rem;
+            background-color: #fff;
+            border-radius: 0.2rem;
+            border: 0.1rem solid #000;
+        }
+        button:hover {
+            color: #fff;
+            background-color: #000;
+        }
+    }
 }
 
 dialog {
@@ -44,23 +95,26 @@ dialog {
         font-size: 1rem;
         display: grid;
         grid-template: repeat(6, auto) / repeat(2, 1fr);
-        gap: 0.5rem;
+        gap: 0.8rem;
 
         div {
             display: grid;
-            grid-template-columns: 1fr 3fr;
+            grid-template-columns: 1fr 2fr;
             align-items: center;
 
             label {
                 font-size: 1.2rem;
             }
             input {
-                justify-self: end;
                 padding: 0.5rem;
-                width: 14rem;
+                width: 100%;
                 height: 2rem;
                 border: 0.1rem solid #000;
                 border-radius: 0.4rem;
+            }
+            #readSelect {
+                width: 1.4rem;
+                height: 1.4rem;
             }
         }
 
@@ -95,7 +149,7 @@ dialog {
         }
         #line4 {
             grid-area: 5 / 1 / span 1 / span 2;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         #cancelForm {
             grid-area: 6 / 1 / span 1 / span 1;
